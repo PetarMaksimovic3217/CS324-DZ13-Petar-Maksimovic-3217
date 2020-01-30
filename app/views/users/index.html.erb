@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align: center">Name</th>
+      <th scope="col" style="text-align: center">Lastname</th>
+      <th scope="col" style="text-align: center">Age</th>
+      <th scope="col" style="text-align: center">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td style="padding-top:20px;text-align: center"><%= user.name %></td>
+        <td style="padding-top:20px;text-align: center"><%= user.lastname %></td>
+        <td style="padding-top:20px;text-align: center"><%= user.age %></td>
+        <td style="text-align: center">
+          <%= link_to 'Show', user, :class =>'btn btn-success', :style=>'color: white;' %>
+          <%= link_to 'Edit', edit_user_path(user), :class =>'btn btn-warning', :style=>'color: white;'%>
+          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class =>'btn btn-danger' ,:style=>'color: white;' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<%= link_to 'New User', new_user_path,:class =>'btn btn-primary',:style=>'color: white;' %>
+<%= link_to 'Home', root_path,:class =>'btn btn-primary',:style=>'color: white;' %>
+
+
+
